@@ -1,10 +1,10 @@
 var fs = require("fs");
-var json = require("./GCD_9_721_730.json");
+var json = require("./GCD_11_751_770.json");
 
 var kick_null_object = function(json){
 	var newjson = [];
 	for ( i = 0; i < json.length; i++ ){
-		if ( json[i].Entry !== "" || json[i].TibetanDefination !== "" || json[i].中文解釋 !== "" ) newjson.push(json[i]);
+		if ( json[i].Entry !== "" || json[i]["Tibetan Defination"] !== "" || json[i].中文解釋 !== "" ) newjson.push(json[i]);
 	}
 	return newjson;
 }
@@ -15,7 +15,7 @@ var transjson = function(json){
 	for ( i = 0; i < json.length; i++ ){
 		if ( !entry_obj["page"] ) entry_obj["page"] = json[i].Page;
 		if ( !entry_obj["entry"] ) entry_obj["entry"] = json[i].Entry;
-		tdefinition.push(json[i].TibetanDefination);
+		tdefinition.push(json[i]["Tibetan Defination"]);
 		cdefinition.push(json[i].中文解釋);
 		abbr1.push(json[i].略語1);
 		abbr2.push(json[i].略語2);
